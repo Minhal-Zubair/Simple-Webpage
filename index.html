@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <link href="https://css.gg/css" rel="stylesheet" />
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+
+    <title>Profile</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: rgb(155, 125, 183);
+            border-radius: 100px;
+            min-height: 100vh;
+            scroll-behavior: smooth;
+            position: relative;
+            z-index: 1;
+            border-radius: 50px;
+            scroll-behavior: smooth;
+            position: relative;
+            height: 100%;
+            box-sizing: border-box;
+        }
+
+        audio {
+            border-style: double;
+            border-radius: 50px;
+
+        }
+
+        .audio p {
+            margin-top: 20px;
+        }
+
+        header {
+            background: linear-gradient(to bottom right, #dad2d2, #cf86dc);
+            text-align: center;
+            padding: 2em 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        header img {
+            height: 200px;
+            backdrop-filter: blur(10px);
+            padding-bottom: 5px;
+        }
+
+        header img:hover {
+            transform: scale(1.1);
+        }
+
+        #navbar {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            background: linear-gradient(to bottom right, #dad2d2, #cf86dc);
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+        }
+
+        #about {
+            margin-top: 50px;
+        }
+
+        #about:hover {
+            transform: scale(1.02);
+        }
+
+        .skill-section {
+            padding: 10px;
+            text-align: center;
+            font-size: 17px;
+        }
+
+        #skills:hover {
+            transform: scale(1.02);
+        }
+
+        .skill-box {
+            display: flex;
+            /* Use Flexbox */
+            flex-direction: column;
+            /* Align items in column */
+            justify-content: center;
+            /* Center vertically */
+            align-items: center;
+            /* Center horizontally */
+            background-color: #fff;
+            /* White background */
+            border: 1px solid #ddd;
+            /* Light border */
+            border-radius: 8px;
+            /* Rounded corners */
+            padding: 20px;
+            /* Padding */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* Shadow effect */
+            transition: transform 0.3s ease;
+            /* Smooth hover transition */
+        }
+
+        .skill-box:hover {
+            background-color: #dad2d2;
+        }
+
+        .skill-bars bar {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        ul {
+            list-style: none;
+            display: flex;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 1rem;
+        }
+
+        nav ul li a {
+            color: rgb(74, 34, 62);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            color: blue;
+            border: 2px solid black;
+            border-radius: 5px;
+            padding: 10px;
+        }
+
+        .animated-heading {
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 20px lightcoral;
+            }
+
+            to {
+                text-shadow: 0 0 30px lightpink, 0 0 10px lightsalmon;
+            }
+        }
+
+        main {
+            display: grid;
+            grid-template-columns: 1fr;
+            justify-items: center;
+            gap: 20px;
+        }
+
+        main form {
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+        }
+
+        .card {
+            background: white;
+            color: black;
+            padding: 2em;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            width: 50%;
+        }
+
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 2px solid black;
+            margin-top: 20px;
+        }
+
+        table th,
+        table td {
+            border: 2px solid black;
+            padding: 5px;
+            text-align: center;
+        }
+
+        table tr:hover {
+            background-color: rgb(241, 225, 236);
+        }
+
+        table th {
+            background-color: rgb(93, 12, 99);
+            color: white;
+        }
+
+        #education:hover {
+            transform: scale(1.02);
+        }
+
+        #projects:hover {
+            transform: scale(1.02);
+        }
+
+        .intern-item {
+            margin-top: 10px;
+        }
+
+        video {
+            display: block;
+            margin: 10px auto;
+
+        }
+
+        #video p {
+            text-align: center;
+        }
+
+        #contact {
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 0.75em 0.75em;
+            cursor: pointer;
+        }
+
+        #contact:hover {
+            transform: scale(1.02);
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 10px;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .social-icons {
+            margin-bottom: 10px;
+            font-size: 40px;
+        }
+
+        .social-icons a {
+            margin: 0 10px;
+            display: inline-block;
+        }
+
+        .social-icons img {
+            width: 24px;
+            height: 24px;
+            filter: invert(1);
+            transition: transform 0.3s;
+        }
+
+        .social-icons img:hover {
+            transform: scale(1.02);
+        }
+
+        .scroll-to-top {
+            position: static fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 20px;
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+            padding-left: 300px;
+
+        }
+
+        .scroll-to-top:hover {
+            color: #ddd;
+        }
+
+        .footer-iconTop {
+            margin-left: 400px;
+            position: relative;
+        }
+
+        .footer-iconTop a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            padding: .8rem;
+            background: white;
+            border-radius: .8rem;
+            border: .2rem solid black;
+            outline: .2rem solid transparent;
+            transition: .5s ease;
+            bottom: 10px;
+
+        }
+
+        .footer-iconTop a:hover {
+            outline-color: var(--white-color);
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header">
+        <img src="minhal profile.png">
+        <div class="name">
+            <h1>Minhal Zubair</h1>
+        </div>
+        </div>
+
+        <div class="text-keyframes">
+            <div class="color-animation">
+                <p>Front End Developer | Tech Enthusiast | C++ | OOP</p>
+            </div>
+        </div>
+        <div class="audio">
+
+            <p>Click on the play button to play a sound:</p>
+            <audio controls>
+                <source src="file_example_MP3_700KB.mp3" type="audio/mpeg" controls>
+            </audio>
+        </div>
+        </div>
+        </div>
+    </header>
+    <nav id="navbar">
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#internship">Internships</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section id="about" class="card">
+            <div class="container">
+                <div class="animated-heading">
+                    <h2>About Me</h2>
+                </div>
+                <div class="about-me">
+                    <article>My name is Minhal Zubair.I am an <strong>enthusiastic web developing learner</strong>.
+                        I am currently persuing <strong>BSCS</strong> degree from LCWU.
+                        I’ve always been fascinated by how technology works, and this curiosity led me to pursue a
+                        career in computer science.
+                        At the moment, I’m learning <strong>Web Development</strong> like HTML, CSS, JavaScript, React
+                        through online courses and personal projects.
+                        I’m actively working on understanding the core concepts of computer science, from <strong>coding
+                            fundamentals</strong> to <strong>algorithm design</strong>.
+                        In the <strong>future</strong>, I hope to apply my skills to create software solutions and grow
+                        as a <strong>developer</strong> in the technology industry.</article>
+                </div>
+            </div>
+        </section>
+
+
+
+        <section id="skills" class="card">
+            <div class="animated-heading">
+                <h2>Skills</h2>
+            </div>
+            <div class="skill-section">
+                <div class="skill-list">
+
+                    <div class="skill-bars">
+                        <div class="bar">
+                            <div class="skill-box">
+                                <div class="skill-info">
+                                    <i class="devicon-cplusplus-plain"></i>
+                                    <h4>C++</h4>
+                                </div>
+                            </div>
+                            <div class="skill-box">
+                                <div class="skill-info">
+                                    <i class="devicon-css3-plain">
+                                    </i>
+                                    <h4>CSS</h4>
+                                </div>
+                            </div>
+                            <div class="skill-box">
+                                <div class="skill-info">
+                                    <i class="devicon-javascript-plain"></i>
+                                    <h4>JavaScript</h4>
+                                </div>
+                            </div>
+
+                            <div class="skill-box">
+                                <div class="skill-info">
+                                    <i class="devicon-html5-plain"></i>
+                                    <h4>HTML</h4>
+                                </div>
+                            </div>
+
+                            <div class="skill-box">
+                                <div class="skill-info">
+                                    <i class="devicon-c-plain"></i>
+                                    <h4>
+                                        C
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="education" class="card">
+            <div class="animated-heading">
+                <h2>Education</h2>
+            </div>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Institution</th>
+                        <th>Field of Study</th>
+                        <th>Years</th>
+                        <th>Grade</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Lahore College for Women University</td>
+                        <td>BS in Computer Science</td>
+                        <td>
+                            <date>Oct 2023 - Jan 2027</date>
+                        </td>
+                        <td>A</td>
+                    </tr>
+                    <tr>
+                        <td>Punjab Group of Colleges</td>
+                        <td>Inter in Pre-Engineering</td>
+                        <td>
+                            <date>Nov 2021 - May 2023</date>
+                        </td>
+                        <td>A+</td>
+                    </tr>
+                    <tr>
+                        <td>Allied Schools Al-Miraj Campus</td>
+                        <td>Matric in Computer Science</td>
+                        <td>
+                            <date>May 2019 - Jul 2021</date>
+                        </td>
+                        <td>A+</td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+        </section>
+
+        <section id="projects" class="card">
+            <div class="animated-heading">
+                <h2>Projects</h2>
+            </div>
+            <table id="projects-table">
+                <thead>
+                    <tr>
+                        <th>Project Name</th>
+                        <th>Description</th>
+                        <th>Source Code</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Tic Tac Toe Game</strong></td>
+                        <td>Built two-player Tic Tac Toe game with dynamic 3x3 grid updating after each move. Prompted
+                            users for rematch after drawn games, swapping positions for players.</td>
+                        <td><a href="tic tac toe.txt" target="_blank">View Source Code</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong> Guessing Game</strong></td>
+                        <td>Developed a number guessing game where users input a number, and the system randomly selects
+                            a number. Implemented functionality to provide feedback to the user after each guess,
+                            indicating whether the guess is higher or lower than the target number.</td>
+                        <td><a href="number guessing game.txt" target="_blank">View Source Code</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Quiz Game</strong></td>
+                        <td>Developed a quiz game similar to the format of the popular KBC game, where users earned
+                            points for correct answers, with points doubling for consecutive correct responses.</td>
+                        <td><a href="quiz game.txt" target="_blank">View Source Code</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Temperature Converter</strong></td>
+                        <td>When you run this program, you’ll see a simple user interface that allows the user to input
+                            a temperature and select the type of conversion they wish to perform. Based on the selected
+                            choice, the program will output the converted temperature.</td>
+                        <td><a href="Temperature Converter.txt" target="_blank">View Source Code</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="card">
+
+            <div id="internship">
+                <div class="animated-heading">
+                    <h2>Internships</h2>
+                </div>
+                <div class="intern-grid">
+                    <div class="intern-item">
+                        <h2><strong>1. CodSoft Internship</strong></h2>
+                        <br>
+                        <h4><span>Cpp Programming</span></h4>
+                        <br>
+                        <h4><span>Online Internship</span></h4>
+                        <br><br>
+                        <p>&#8594; Completed three tasks during a one-month internship at
+                            Cod-Soft, gaining valuable coding skills and practical
+                            experience. Received a certificate for successful completion
+                            and contributions.</p>
+                        <h2><strong>2. Prodigy Infotech</strong></h2>
+                        <br>
+                        <h4><span>Cpp Programming</span></h4>
+                        <br>
+                        <h4><span>Online Internship</span></h4>
+                        <br><br>
+                        <p>&#8594; Completed five tasks at Prodigy InfoTech, enhancing programming skills and gaining
+                            hands-on experience in coding, testing, and debugging.
+                            Demonstrated adaptability and problem-solving abilities,
+                            contributing effectively to team goals and receiving
+                            recognition.</p>
+                    </div>
+                </div>
+            </div>
+
+
+        </section>
+
+        <Section id="video" class="card">
+            <div class="animated-heading">
+                <h2>Video</h2>
+            </div>
+            <h4>My Favourite Video: </h4>
+            <video width="400" controls>
+                <source src="mov_bbb.mp4" type="video/mp4">
+            </video>
+
+            <p>
+                Video courtesy of
+                <a href="https://www.bigbuckbunny.org/" target="_blank">Big Buck Bunny</a>.
+            </p>
+
+        </Section>
+
+        <section id="contact" class="card">
+            <div class="animated-heading">
+                <h2>Contact</h2>
+            </div>
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="   Minhal Zubair" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="    example@gmail.com" required>
+                <label for="message">Password:</label>
+                <input type="password" id="password" name="password" placeholder="    ***" required>
+
+                <label>Preferred Contact Method</label>
+                <div class="radio-checkbox-group">
+                    <input type="radio" id="contact-email" name="contact-method" value="email" required>
+                    <label for="contact-email">Email</label>
+                    <input type="radio" id="contact-phone" name="contact-method" value="phone" required>
+                    <label for="contact-phone">Phone</label>
+                </div>
+                <div class="radio-checkbox-group">
+                    <input type="checkbox" id="subscribe" name="subscribe">
+                    <label for="subscribe">Subscribe to newsletter</label>
+                </div>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" placeholder="   Type your message here" required></textarea>
+                <button type="submit">Send</button>
+
+
+            </form>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="social-icons">
+            <a href="https://github.com/Minhal-Zubair" target="_blank">
+                <i class='bx bxl-github'></i>
+            </a>
+
+            <a href="https://www.linkedin.com/in/minhal-zubair-148291291/" target="_blank">
+                <i class='bx bxl-linkedin-square'></i>
+            </a>
+
+
+
+        </div>
+        <p class="copyright">
+            &copy; Minhal Zubair | All Rights Reserved
+        </p>
+        <!-- <a href="#header" class="scroll-to-top"> -->
+        <div class="footer-iconTop">
+            <a href="#header">
+                <i class="bx bx-up-arrow-alt">
+                </i>
+            </a>
+        </div>
+
+
+    </footer>
+
+
+
+
+</body>
+
+</html>
