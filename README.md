@@ -1,0 +1,2 @@
+# Simple-Webpage
+ Created a simple profile webpage to deepen my HTML concepts. The main focus is on HTML elements like forms, multimedia intergration, semantic HTML and accessibility. It has a header with a navigation bar, main content area with multiple sections, embedded multimedia like audio and video, a contact form with a submit button,  a table with atleast three rows. Also add some CSS to make it look more attractive and beautiful.
